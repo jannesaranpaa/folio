@@ -1,0 +1,50 @@
+Portions of this repository are licensed under different terms:
+
+===============================================================================
+1. CODE / ARCHITECTURE (MIT License)
+===============================================================================
+All source code, including templates, component logic, styling, scripts, and 
+build configurations (e.g., files ending in .astro, .ts, .tsx, .js, .mjs, .css, 
+and .json configuration files), is licensed under the MIT License.
+
+Copyright (c) 2026 Janne Saranpää
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction in the Software without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+===============================================================================
+2. CONTENT & MEDIA (Creative Commons Attribution-NonCommercial-NoDerivatives 4.0)
+===============================================================================
+All prose, technical write-ups, articles, project descriptions, personal resume/CV 
+data, images, logos, and audio/video media located within `src/content/`, 
+`src/data/`, `public/`, or top-level project documentation are licensed under the 
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0).
+
+Copyright (c) 2026 Janne Saranpää
+
+Under this license, others are free to share (copy and redistribute) the material 
+in any medium or format under the following terms:
+
+  * Attribution — You must give appropriate credit, provide a link to the license, 
+    and indicate if changes were made.
+  * NonCommercial — You may not use the material for commercial purposes.
+  * NoDerivatives — If you remix, transform, or build upon the material, you 
+    may not distribute the modified material.
+
+To view a copy of this license, visit:
+https://creativecommons.org/licenses/by-nc-nd/4.0/
