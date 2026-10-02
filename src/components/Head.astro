@@ -1,5 +1,5 @@
 ---
-import skillsData from "../data/skills.json";
+import { getCollection } from "astro:content";
 
 interface Props {
 	title: string;
@@ -19,7 +19,7 @@ const pageTitle = `${title} | Janne's portfolio`;
 const absoluteImageUrl = new URL(image, Astro.url);
 const siteUrl = Astro.site?.toString().replace(/\/$/, "") || "https://jssa.fi";
 
-const skillNames = skillsData.skills.map((s) => s.name);
+const skillNames = (await getCollection("skills")).map((s) => s.data.name);
 
 // Site-wide Person Schema
 const personSchema = {

@@ -1,13 +1,8 @@
 import React, { useState, useMemo } from "react";
 
-export interface Skill {
-	id: string;
-	name: string;
-	category: string;
-	proficiency: "core" | "proficient" | "familiar";
-	highlight: boolean;
-	summary: string;
-}
+import type { CollectionEntry } from "astro:content";
+
+export type Skill = CollectionEntry<"skills">["data"] & { id: string };
 
 interface SkillFilterProps {
 	skills: Skill[];

@@ -1,8 +1,8 @@
 ---
-import BaseLayout from "../../layouts/layout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SkillFilter } from "../../components/SkillFilter";
 import { useTranslations } from "../../i18n/ui";
-import skillsData from "../../data/skills.json";
+import { getCollection } from "astro:content";
 
 export function getStaticPaths() {
 	return [{ params: { lang: "en" } }, { params: { lang: "fi" } }];
@@ -10,6 +10,10 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: "en" | "fi" };
 const t = useTranslations(lang);
+const skills = (await getCollection("skills")).map((s) => ({
+	id: s.id,
+	...s.data,
+}));
 
 // Map filter labels directly from the translation helper
 const filterLabels = {
@@ -39,11 +43,7 @@ const filterLabels = {
 			</h2>
 
 			<!-- React Island -->
-			<SkillFilter
-				client:load
-				skills={skillsData.skills}
-				labels={filterLabels}
-			/>
+			<SkillFilter client:load skills={skills} labels={filterLabels} />
 		</div>
 	</section>
 </BaseLayout>
