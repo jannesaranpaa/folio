@@ -1,7 +1,108 @@
-[
-    {
-        "id": "react",
-        "name": "react",
-        "level": 5
-    }
-]
+{
+    "skills": [
+        {
+            "id": "rust",
+            "name": "Rust",
+            "category": "languages",
+            "proficiency": "core",
+            "highlight": true,
+            "summary": "Building high-performance backends using Axum, Rocket, SQLx, and native unit/integration tests."
+        },
+        {
+            "id": "typescript",
+            "name": "TypeScript",
+            "category": "languages",
+            "proficiency": "core",
+            "highlight": true,
+            "summary": "Full-stack web apps, end-to-end type safety, and OpenAPI client generation."
+        },
+        {
+            "id": "tanstack",
+            "name": "TanStack Ecosystem",
+            "category": "frameworks",
+            "proficiency": "core",
+            "highlight": true,
+            "summary": "Query, Router, Table, and Form management in modern React client applications."
+        },
+        {
+            "id": "postgresql",
+            "name": "PostgreSQL & SQLite",
+            "category": "databases",
+            "proficiency": "core",
+            "highlight": true,
+            "summary": "Complex handwritten SQL, relational schema design, and compile-time verified queries via SQLx."
+        },
+        {
+            "id": "observability-tracing",
+            "name": "Tracing & Grafana",
+            "category": "infrastructure",
+            "proficiency": "proficient",
+            "highlight": true,
+            "summary": "Structured logging using `tracing` in Rust, telemetry, and Scaleway metrics via Grafana."
+        },
+        {
+            "id": "auth-jwt",
+            "name": "JWT & Web Security",
+            "category": "security",
+            "proficiency": "proficient",
+            "highlight": false,
+            "summary": "Stateless authentication flows, secure token storage, and GDPR-compliant user data boundaries."
+        },
+        {
+            "id": "testing-playwright",
+            "name": "Playwright & Cargo Test",
+            "category": "testing",
+            "proficiency": "proficient",
+            "highlight": false,
+            "summary": "Rust unit/integration tests, end-to-end browser testing with Playwright, and component isolation in Storybook."
+        },
+        {
+            "id": "scaleway-docker",
+            "name": "Scaleway, VPS & Docker",
+            "category": "infrastructure",
+            "proficiency": "proficient",
+            "highlight": true,
+            "summary": "EU-hosted GDPR-compliant infrastructure, Docker containerization, Cloudflare, and S3 storage."
+        },
+        {
+            "id": "linux-devops",
+            "name": "Linux & CI/CD",
+            "category": "infrastructure",
+            "proficiency": "proficient",
+            "highlight": false,
+            "summary": "Server configuration, shell scripting, local/remote Linux environments, and automated GitHub Actions pipelines."
+        },
+        {
+            "id": "python",
+            "name": "Python",
+            "category": "languages",
+            "proficiency": "proficient",
+            "highlight": false,
+            "summary": "REST APIs using FastAPI and Flask, OpenAPI specs, and machine learning basics."
+        },
+        {
+            "id": "pwa-web-apis",
+            "name": "PWAs & Realtime Web",
+            "category": "frontend",
+            "proficiency": "proficient",
+            "highlight": false,
+            "summary": "Service workers, push notifications, offline caching, and Server-Sent Events (SSE)."
+        },
+        {
+            "id": "cs-theory",
+            "name": "Computer Science & HCI",
+            "category": "cs-foundations",
+            "proficiency": "proficient",
+            "highlight": false,
+            "summary": "Data structures & algorithms, networking fundamentals, statistics, machine learning, and usability/HCI principles."
+        },
+        {
+            "id": "secondary-languages",
+            "name": "C++, C#, Lua, Elm, Bash",
+            "category": "languages",
+            "proficiency": "familiar",
+            "highlight": false,
+            "summary": "Functional architecture in Elm, scripting in Lua, foundational system concepts in C++ and C#."
+        }
+    ]
+}

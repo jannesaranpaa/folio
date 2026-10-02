@@ -1,0 +1,74 @@
+---
+import skillsData from "../data/skills.json";
+
+interface Props {
+    title: string;
+    description?: string;
+    image?: string;
+    canonicalURL?: URL | string;
+}
+
+const {
+    title,
+    description = "Janne's portfolio",
+    image = "/og-default.png", // Corrected typo from /of-default.png
+    canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://jssa.fi"),
+} = Astro.props;
+
+const pageTitle = `${title} | Janne's portfolio`;
+const absoluteImageUrl = new URL(image, Astro.url);
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") || "https://jssa.fi";
+
+const skillNames = skillsData.skills.map((s) => s.name);
+
+// Site-wide Person Schema
+const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${siteUrl}/#person`,
+    name: "Janne",
+    jobTitle: "Software Developer",
+    url: siteUrl,
+    sameAs: [
+        "https://github.com/your-username",
+        "https://linkedin.com/in/your-username",
+    ],
+    knowsAbout: skillNames,
+};
+---
+
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={absoluteImageUrl} />
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={pageTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={absoluteImageUrl} />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet"
+/>
+
+<!-- Structured Data (JSON-LD) -->
+<script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(personSchema)}
+/>
+<slot />
