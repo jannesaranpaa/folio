@@ -1,17 +1,17 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
-  
-  return projects.map((project) => {
-    // project.id is now "en/fuksiseikkailu"
-    const [lang, id] = project.id.split('/');
-    return {
-      params: { lang, id },
-      props: { project },
-    };
-  });
+	const projects = await getCollection("projects");
+
+	return projects.map((project) => {
+		// project.id is now "en/fuksiseikkailu"
+		const [lang, id] = project.id.split("/");
+		return {
+			params: { lang, id },
+			props: { project },
+		};
+	});
 }
 
 const { project } = Astro.props;
@@ -19,16 +19,16 @@ const { Content } = await render(project);
 ---
 
 <html lang={Astro.params.lang}>
-  <head>
-    <meta charset="utf-8" />
-    <title>{project.data.title}</title>
-  </head>
-  <body>
-    <main>
-      <h1>{project.data.title}</h1>
-      <article>
-        <Content />
-      </article>
-    </main>
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<title>{project.data.title}</title>
+	</head>
+	<body>
+		<main>
+			<h1>{project.data.title}</h1>
+			<article>
+				<Content />
+			</article>
+		</main>
+	</body>
 </html>

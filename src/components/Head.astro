@@ -2,17 +2,17 @@
 import skillsData from "../data/skills.json";
 
 interface Props {
-    title: string;
-    description?: string;
-    image?: string;
-    canonicalURL?: URL | string;
+	title: string;
+	description?: string;
+	image?: string;
+	canonicalURL?: URL | string;
 }
 
 const {
-    title,
-    description = "Janne's portfolio",
-    image = "/og-default.png", // Corrected typo from /of-default.png
-    canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://jssa.fi"),
+	title,
+	description = "Janne's portfolio",
+	image = "/og-default.png", // Corrected typo from /of-default.png
+	canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://jssa.fi"),
 } = Astro.props;
 
 const pageTitle = `${title} | Janne's portfolio`;
@@ -23,17 +23,17 @@ const skillNames = skillsData.skills.map((s) => s.name);
 
 // Site-wide Person Schema
 const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": `${siteUrl}/#person`,
-    name: "Janne",
-    jobTitle: "Software Developer",
-    url: siteUrl,
-    sameAs: [
-        "https://github.com/your-username",
-        "https://linkedin.com/in/your-username",
-    ],
-    knowsAbout: skillNames,
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"@id": `${siteUrl}/#person`,
+	name: "Janne",
+	jobTitle: "Software Developer",
+	url: siteUrl,
+	sameAs: [
+		"https://github.com/your-username",
+		"https://linkedin.com/in/your-username",
+	],
+	knowsAbout: skillNames,
 };
 ---
 
@@ -61,14 +61,14 @@ const personSchema = {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-    rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+	rel="stylesheet"
 />
 
 <!-- Structured Data (JSON-LD) -->
 <script
-    type="application/ld+json"
-    is:inline
-    set:html={JSON.stringify(personSchema)}
+	type="application/ld+json"
+	is:inline
+	set:html={JSON.stringify(personSchema)}
 />
 <slot />
