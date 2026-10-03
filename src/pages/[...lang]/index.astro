@@ -1,15 +1,12 @@
 ---
+import { langStaticPaths } from "../../i18n/ui";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SkillFilter } from "../../components/SkillFilter";
-import { useTranslations } from "../../i18n/ui";
 import { getCollection } from "astro:content";
 
-export function getStaticPaths() {
-	return [{ params: { lang: "en" } }, { params: { lang: "fi" } }];
-}
+export const getStaticPaths = langStaticPaths;
 
-const { lang } = Astro.params as { lang: "en" | "fi" };
-const t = useTranslations(lang);
+const { t } = Astro.locals;
 const skills = (await getCollection("skills")).map((s) => ({
 	id: s.id,
 	...s.data,
@@ -31,13 +28,13 @@ const filterLabels = {
 			<h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
 				{t("hero.title")}
 			</h1>
-			<p class="text-lg text-slate-400 leading-relaxed">
+			<p class="text-lg text-muted leading-relaxed">
 				{t("hero.subtitle")}
 			</p>
 		</div>
 
 		<!-- Interactive Skills Section -->
-		<div class="space-y-4 pt-4 border-t border-slate-800/80">
+		<div class="space-y-4 pt-4 border-t border-line">
 			<h2 class="text-xl font-bold tracking-tight">
 				{t("skills.heading")}
 			</h2>

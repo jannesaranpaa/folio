@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+	const projects = await getCollection("projects");
+
+	return projects.map((project) => {
+		// project.id is e.g. "en/fuksiseikkailu"; the default locale (fi) is unprefixed
+		const [lang, id] = project.id.split("/");
+		return {
+			params: { lang: lang === "fi" ? undefined : lang, id },
+			props: { project },
+		};
+	});
+}
+
+const { project } = Astro.props;
+const { t, lang } = Astro.locals;
+const { Content } = await render(project);
+---
+
+<BaseLayout title={project.data.title} description={project.data.description}>
+	<article class="space-y-4 max-w-2xl">
+		<a href={getRelativeLocaleUrl(lang, "projects")} class="text-accent">{t("project.back")}</a>
+		<h1 class="text-4xl font-extrabold tracking-tight">
+			{project.data.title}
+		</h1>
+		<div class="space-y-4">
+			<Content />
+		</div>
+	</article>
+</BaseLayout>

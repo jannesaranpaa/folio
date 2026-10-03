@@ -5,14 +5,15 @@ import Footer from "../components/Footer.astro";
 
 import "../styles/global.css";
 
-const { title, lang } = Astro.props;
+const { title, description } = Astro.props;
+const { lang } = Astro.locals;
 ---
 
 <html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<Head title={title} />
+		<Head title={title} description={description} />
 	</head>
 	<body>
 		<Header />

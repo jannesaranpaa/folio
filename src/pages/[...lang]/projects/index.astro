@@ -1,0 +1,38 @@
+---
+import { langStaticPaths } from "../../../i18n/ui";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = langStaticPaths;
+
+const { t, lang } = Astro.locals;
+
+// Fetch projects matching the current language directory
+const allProjects = await getCollection("projects", ({ id }) => {
+	return id.startsWith(`${lang}/`);
+});
+---
+
+<BaseLayout title={t("nav.projects")} description={t("projects.desc")}>
+	<section class="space-y-4 max-w-2xl">
+		<h1 class="text-4xl font-extrabold tracking-tight">
+			{t("nav.projects")}
+		</h1>
+		<ul class="space-y-2">
+			{
+				allProjects.map((project) => {
+					// Removes 'en/' or 'fi/' prefix from the file ID for cleaner URLs
+					const slug = project.id.replace(`${lang}/`, "");
+					return (
+						<li>
+							<a href={getRelativeLocaleUrl(lang, `projects/${slug}`)} class="text-accent">
+								{project.data.title}
+							</a>
+						</li>
+					);
+				})
+			}
+		</ul>
+	</section>
+</BaseLayout>

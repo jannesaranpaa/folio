@@ -1,12 +1,29 @@
 ---
-import { useTranslations } from "../i18n/ui";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { languages, type Lang } from "../i18n/ui";
 
-let t = useTranslations(Astro.currentLocale as "fi" | "en");
+const { t, lang } = Astro.locals;
+
+// Same page in the other language: strip the current locale prefix, then re-add the target's
+const otherLang: Lang = lang === "fi" ? "en" : "fi";
+const unprefixedPath = Astro.url.pathname.replace(/^\/en(?=\/|$)/, "");
+const switchUrl = getRelativeLocaleUrl(otherLang, unprefixedPath);
 ---
 
 <div class="p-2 border-b border-line flex gap-2">
 	<span class="text-accent font-semibold">{t("header.pageTitle")}</span>
 	<div class="flex-1"></div>
+	<a
+		href={switchUrl}
+		hreflang={otherLang}
+		lang={otherLang}
+		aria-label={languages[otherLang]}
+		title={languages[otherLang]}
+		class="flex items-center justify-center gap-1 uppercase"
+	>
+		<span class="icon-[lucide--languages]"></span>
+		<span class="text-xs">{otherLang}</span>
+	</a>
 	<button
 		id="theme-toggle"
 		aria-label="Toggle theme"

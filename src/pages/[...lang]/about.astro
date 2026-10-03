@@ -1,0 +1,17 @@
+---
+import { langStaticPaths } from "../../i18n/ui";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export const getStaticPaths = langStaticPaths;
+
+const { t } = Astro.locals;
+---
+
+<BaseLayout title={t("about.title")} description={t("about.desc")}>
+	<section class="space-y-4 max-w-2xl">
+		<h1 class="text-4xl font-extrabold tracking-tight">
+			{t("about.heading")}
+		</h1>
+		<p class="text-lg text-muted leading-relaxed">{t("about.body")}</p>
+	</section>
+</BaseLayout>
