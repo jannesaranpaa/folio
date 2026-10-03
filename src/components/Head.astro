@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { Font } from "astro:assets";
 
 interface Props {
 	title: string;
@@ -58,12 +59,8 @@ const personSchema = {
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={absoluteImageUrl} />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-	href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-	rel="stylesheet"
-/>
+<Font cssVariable="--font-playfair" preload />
+<Font cssVariable="--font-rubik" preload={[{ style: "normal" }]} />
 
 <!-- Structured Data (JSON-LD) -->
 <script
