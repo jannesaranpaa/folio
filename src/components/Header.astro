@@ -11,7 +11,10 @@ const switchUrl = getRelativeLocaleUrl(otherLang, unprefixedPath);
 ---
 
 <div class="p-2 border-b border-line flex gap-2">
-	<span class="text-accent font-semibold">{t("header.pageTitle")}</span>
+	<span class="text-accent-muted icon-[lucide--menu]"></span>
+	<span class="text-accent font-semibold text-sm">
+		{t("header.pageTitle")}
+	</span>
 	<div class="flex-1"></div>
 	<a
 		href={switchUrl}
@@ -19,7 +22,7 @@ const switchUrl = getRelativeLocaleUrl(otherLang, unprefixedPath);
 		lang={otherLang}
 		aria-label={languages[otherLang]}
 		title={languages[otherLang]}
-		class="flex items-center justify-center gap-1 uppercase"
+		class="flex items-center justify-center gap-1 uppercase text-accent-muted"
 	>
 		<span class="icon-[lucide--languages]"></span>
 		<span class="text-xs">{otherLang}</span>
@@ -27,7 +30,7 @@ const switchUrl = getRelativeLocaleUrl(otherLang, unprefixedPath);
 	<button
 		id="theme-toggle"
 		aria-label="Toggle theme"
-		class="flex items-center justify-center"
+		class="flex items-center justify-center text-accent-muted"
 	>
 		<span class="icon-[lucide--moon] dark:hidden"></span>
 		<span class="icon-[lucide--sun] hidden dark:inline-block"></span>
