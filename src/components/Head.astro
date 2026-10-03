@@ -72,3 +72,11 @@ const personSchema = {
 	set:html={JSON.stringify(personSchema)}
 />
 <slot />
+
+<script is:inline>
+	const stored = localStorage.getItem("theme");
+	const dark = stored
+		? stored === "dark"
+		: matchMedia("(prefers-color-scheme: dark)").matches;
+	document.documentElement.classList.toggle("dark", dark);
+</script>

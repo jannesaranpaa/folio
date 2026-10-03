@@ -1,1 +1,34 @@
 @import "tailwindcss";
+@plugin "@iconify/tailwind4";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Replace the default palette so slate/teal can't creep back in */
+  --color-*: initial;
+
+  --color-paper: oklch(0.98 0.01 90);
+  --color-ink: oklch(0.2 0.02 260);
+  --color-muted: oklch(0.55 0.02 260);
+  --color-line: oklch(0.88 0.01 90);
+  --color-accent: oklch(0.65 0.18 35);
+
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Rubik", system-ui, sans-serif;
+}
+
+.dark {
+  --color-paper: oklch(0.2 0.02 260);
+  --color-ink: oklch(0.98 0.01 90);
+  --color-muted: oklch(0.7 0.02 260);
+  --color-line: oklch(0.3 0.02 260);
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+}
